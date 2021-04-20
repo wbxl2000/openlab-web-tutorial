@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 这里网页标题 -->
+  <title>测试乌拉乌拉</title>
+  <!-- 这里引用了在线的 JQuery 库 -->
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script> 
+</head>
+<body>
+  name : <input id="name"> </input>
+  <button id="button1"> submit </button>
+  <p id="res"></p>
+</body>
+</html>
+
+<style>
+  /* 这里是写 CSS 的 */
+</style>
+
+<script>
+  /* 这里是写 JS 的 */
+  $("#button1").click(function () {
+    const name = $("#name").val();
+    console.log(name); // 输出调试
+    $.post("/api/find", { name: name }, function (result) {
+      console.log(result);
+      $("#res").html(result);
+    });
+  });
+</script>
